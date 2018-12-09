@@ -14,73 +14,35 @@ See [Vue Installation](https://vuejs.org/v2/guide/installation.html#CLI)
 - vue create tiva11forvue
 - vue add vuetify
 
+
 ### Options Used when Project was Created and Vuetify Installed
-See [CLI 3](https://cli.vuejs.org/guide/creating-a-project.html#vue-create)
+For detailed instructions see [CLI 3](https://cli.vuejs.org/guide/creating-a-project.html#vue-create)
+
+I had to set No to "Use class-style component syntax?" to avoid a [compilation error: Unable to resolve signature of class decorator when called as an expression](https://github.com/vuejs/vue-class-component/issues/294). So, I cannot use decorators until this error is not fixed.
+
 ```
 Vue CLI v3.2.1
-? Target directory C:\Users\nemet\tiva11\tiva11forvue already exists. Pick an action: Merge
 ? Please pick a preset: Manually select features
-? Check the features needed for your project: Babel, TS, PWA, Router, Vuex, Linter, Unit
-? Use class-style component syntax? Yes
+? Check the features needed for your project: Babel, TS, PWA, Router, Vuex
+? Use class-style component syntax? No
 ? Use Babel alongside TypeScript for auto-detected polyfills? Yes
 ? Use history mode for router? (Requires proper server setup for index fallback in production) Yes
-? Pick a linter / formatter config: TSLint
-? Pick additional lint features: (Press <space> to select, <a> to toggle all, <i> to invert selection)Lint on save
-? Pick a unit testing solution: Mocha
 ? Where do you prefer placing config for Babel, PostCSS, ESLint, etc.? In dedicated config files
 ? Save this as a preset for future projects? No
 
 Successfully installed plugin: vue-cli-plugin-vuetify
-? Choose a preset: Configure (advanced)
-? Use a pre-made template? (will replace App.vue and HelloWorld.vue) Yes
-? Use custom theme? No
-? Use custom properties (CSS variables)? No
-? Select icon font Material Icons
-? Use fonts as a dependency (for Electron or offline)? No
-? Use a-la-carte components? Yes
-? Select locale English
+? Choose a preset: Default (recommended)
 ```
-### Files Updated and Changed after Adding Vuetify
-.browserslistrc
-     babel.config.js
-     package-lock.json
-     package.json
-     postcss.config.js
-     public/favicon.ico
-     public/img/icons/android-chrome-192x192.png
-     public/img/icons/android-chrome-512x512.png
-     public/img/icons/apple-touch-icon-120x120.png
-     public/img/icons/apple-touch-icon-152x152.png
-     public/img/icons/apple-touch-icon-180x180.png
-     public/img/icons/apple-touch-icon-60x60.png
-     public/img/icons/apple-touch-icon-76x76.png
-     public/img/icons/apple-touch-icon.png
-     public/img/icons/favicon-16x16.png
-     public/img/icons/favicon-32x32.png
-     public/img/icons/msapplication-icon-144x144.png
-     public/img/icons/mstile-150x150.png
-     public/img/icons/safari-pinned-tab.svg
-     public/index.html
-     public/manifest.json
-     public/robots.txt
-     src/App.vue
-     src/assets/logo.png
-     src/assets/logo.svg
-     src/components/HelloWorld.vue
-     src/main.ts
-     src/plugins/vuetify.ts
-     src/registerServiceWorker.ts
-     src/router.ts
-     src/shims-tsx.d.ts
-     src/shims-vue.d.ts
-     src/store.ts
-     src/views/About.vue
-     src/views/Home.vue
-     tests/unit/example.spec.ts
-     tsconfig.json
-     tslint.json
-     .gitignore
-     README.md
+To avoid the "ERROR in C:/Users/nemet/tiva11/tiva11forvue/src/plugins/vuetify.ts 2:21 Could not find a declaration file for module vuetify/lib" I had to modify the tsconfig.json as suggested in [No typings for importing "A La Carte" components #3943](https://github.com/vuetifyjs/vuetify/issues/3943#issuecomment-442434245) 
+```
+  "include": [
+    ...,
+    "node_modules/vuetify/types", // add this one
+  ],
+  "exclude": [
+    "node_modules/^(?!vuetify/types).*$" // change the default exclude rule to this
+  ]
+```
 
 ## Project NPM Script Commands
 - npm install
