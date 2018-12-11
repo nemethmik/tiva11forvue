@@ -1,5 +1,7 @@
-# tiva11forvue
+# tiva11forvue (Project on Hold)
 An experimental project for evaluating Vue CLI3/TypeScript/PWA for mobile business applications (SAP B1)
+**Checkout the vuetifyninja branch**
+
 ## Motivation and Project Objectives
 This is another episode in a series of evaluating a number of technologies, tools, toolchains, programming languages, frameworks. So far I had hands on experience on developing C#/Xamarin/Forms, native Java/Android both mobile/tablet and WearOS with Android Studio. Then I started with Flutter on a Mac, it was really brilliant, but because of its lack of support for WearOS and desktop, I (temporarily) stopped working on Flutter. Then, I started evaluating JavaScript/Web with React, Redux, Apollo GraphQL, Flow. I picked React because potentially it has the option to switch over to React Native. To my surprise, JavaScript is mature for business applications, but without a type system, it's pretty unusable for any maintainable projects; Design-1st is a must, too.
 Flow integration with React is far from my expectations; the Material Design UI libraries for React are lacking, too. After learning Progressive Web Application (PWA) React Native is not really an interesting option any more. A Vue/TypeScript/PWA could be absolutely excellent. In the meantime Flutter 1.0 was announced, still it has the shortcomings. A TypeScript powered JavaScript toolchain would be perfect both for client (Vue/PWA) as well as for the server. TypeScript is directly supported in Firebase Functions, too.
